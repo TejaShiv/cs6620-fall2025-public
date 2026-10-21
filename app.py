@@ -147,6 +147,17 @@ def index():
     """
     return render_template('index.html') 
 
+
+@app.route('/version')
+def version():
+    from datetime import datetime
+    return f'''
+    <h1>Hello from Automated CI/CD Pipeline!</h1>
+    <p>Version 2.0, Automated Deployment</p>
+    <p>Deployed via GitHub Actions and AWS SSM</p>
+    <p>Build time {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</p>
+    '''
+
 @app.route('/select_directory', methods=['POST'])
 def select_directory():
     """
